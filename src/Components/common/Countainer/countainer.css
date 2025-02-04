@@ -1,0 +1,12 @@
+.countainer{
+    display: flex;
+}
+.countainer-light{
+background-color:white ;
+color:rgb(2, 10, 37); ;
+}
+.countainer-dark
+{
+background-color: rgb(2, 10, 37);
+color: white;
+}

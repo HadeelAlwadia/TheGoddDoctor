@@ -1,4 +1,4 @@
-import "./loginPage.css";
+import "./login.css";
 
 const LoginPage = () => {
   return (
