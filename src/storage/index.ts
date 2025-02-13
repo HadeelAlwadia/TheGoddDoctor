@@ -1,8 +1,8 @@
 
 // Function to store a value in localStorage
-function storeInLocalStorage(key:string, value:string) {
+function storeInLocalStorage(key:string, value:string|object) {
     // Ensure the value is converted to a string (if it's not already)
-    localStorage.setItem(key, JSON.stringify(value));
+      localStorage.setItem(key, typeof value!=='string'?JSON.stringify(value):value);
 }
 
 
@@ -21,9 +21,9 @@ function removeFromLocalStorage(key:string) {
 }
 
 
-const userInfo=getFromLocalStorage('userInfo')?getFromLocalStorage('userInfo'):{id:'',token:'',type:''}
+let userInfo=getFromLocalStorage('userInfo')?getFromLocalStorage('userInfo'):{id:'',name:'',role:''}
 
-
+  
 export {
     getFromLocalStorage,
     storeInLocalStorage,

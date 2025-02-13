@@ -1,10 +1,10 @@
 import { useState } from "react"
 import { validateForm } from "../utils";
-import { typeObject } from "../@types";
+import { Iopject_Type } from "../@types";
 
 
 
-const useForm = (values: typeObject, handleSubmitForm: (values: typeObject) => void
+const useForm = (values: Iopject_Type, handleSubmitForm: (values: Iopject_Type) => void
 
 ) => {
 
@@ -22,7 +22,7 @@ const useForm = (values: typeObject, handleSubmitForm: (values: typeObject) => v
         e.preventDefault()
 
         if (!Object.keys(validateForm(valuesForm)).length) {
-            handleSubmitForm(valuesForm as typeObject)
+            handleSubmitForm(valuesForm as Iopject_Type)
             setError({})
 
 

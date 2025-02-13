@@ -5,7 +5,7 @@ import { Iaction, Iapp_State } from '../@types';
 
 
 export const initialState:Iapp_State = {
-   theme: getFromLocalStorage('theme') || 'dark',
+   theme: getFromLocalStorage('theme') || 'light',
    
     dispatch:(action:Iaction)=>{console.log(action)}
 };

@@ -1,13 +1,69 @@
-import "./login.css";
+import useForm from '../../../hooks/useForm'
+import Form, { DrawingFormElements } from '../../../Components/Form'
+import Btn from '../../../Components/common/Button'
+import { Countainer } from '../../../Components/common/Countainer'
+import { storeInLocalStorage } from '../../../storage'
+import clinicAppointment from '../../../assets/clinic-appointment-system.jpg'
+import './login.css'
+import { Iopject_Type } from '../../../@types'
 
-const LoginPage = () => {
+const loginValues = {
+  email: '',
+  password: '',
+  role:'doctor'
+
+}
+
+
+
+const handleLogin = (values:Iopject_Type) => {
+    const userId=`${Math.random()}`
+    storeInLocalStorage('userInfo',{id:userId,...values} )   
+    values.role==='doctor'? window.location.href =`/doctor/${userId}/dashboard`: window.location.href =`/patient/${userId}/appointments`
+
+  }
+
+const Login = () => {
+  
+  const { handleChangeValue, handleSubmit, errors, valuesForm } = useForm(loginValues,handleLogin)
+   
+
   return (
-    <div className="login-page">
-      <div className="container">
-        
-      </div>
-    </div>
+    <main style={{display:'flex',width:'100%'}}>
+     <img className='clinic-appointment-img' src={clinicAppointment} alt='login clinic appointment system' width={'100%'} />
+     <Countainer 
+       width={'100%'} 
+       height={'100vh'}
+       childern={
+         <Form 
+      handleSubmit={handleSubmit}
+      childern={<>
+        <h1 className='title-form'  >welcome!</h1>
+        <DrawingFormElements valuesForm={{email:valuesForm.email,password:valuesForm.password}} handleChangeValue={handleChangeValue} errors={errors}/>
+        <select className='input' value={valuesForm.role}
+            onChange={(e) => handleChangeValue('role', e.target.value)}>
+            {['doctor','patient'].map((val: string) => <option value={val}>{val}</option>)}
+        </select>
+     
+           <Btn  type={"submit"} name={'login'}/>
+
+        </>
+        }
+    />
+  }
+      
+ 
+/>
+    
+    </main>
+
   )
 }
 
-export default LoginPage
+/*       
+*/
+
+
+
+
+export default Login

@@ -6,11 +6,27 @@
 
 body {
   font-family: "Poppins", serif;
+  height: 1200px;
 }
-
+a{
+  color: rgb(12, 12, 12);
+  text-decoration: none;
+}
 .container {
   padding: 0 15px;
   margin: 0 auto;
+}
+
+
+input{
+  outline: none;
+  border: none;
+}
+.link-as-btn{
+  background-color:#344CB7;
+  color:white;
+  width: 200px;
+  padding: 20px 15px;
 }
 
 /* Small Screen */

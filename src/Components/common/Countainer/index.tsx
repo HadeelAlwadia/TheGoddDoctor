@@ -2,6 +2,7 @@ import  { ReactElement, useContext } from 'react'
 import { AppContext } from '../../../store'
 import './countainer.css'
 
+
 interface Icountainer{
   childern:ReactElement
   style?:any,
@@ -19,3 +20,7 @@ export const Countainer = ({childern,style,width,height,flexDirection}:Icountain
     </section>
   )
 }
+
+
+
+

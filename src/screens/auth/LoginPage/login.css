@@ -1,0 +1,13 @@
+
+.title-form{
+  text-align: center;
+  color: #3D8D7A;
+  margin: 20px;
+}
+/* Large Screen */
+@media (max-width: 450px) {
+  .clinic-appointment-img{
+    display: none;
+  }
+  }
+  
