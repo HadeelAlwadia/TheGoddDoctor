@@ -1,16 +1,13 @@
 import About from "../../Components/About"
-import { Blogs } from "../../Components/Blogs"
-import HeroImage from "../../Components/common/HeroImage"
-import Information from "../../Components/Information"
+import HeroImage from "../../Components/HeroImage"
 
 const Home = () => {
   return (
     <>
       <HeroImage/>
       <About/>
-      <Blogs/>
-      <Information/>
       
+   
     </>
   )
 }

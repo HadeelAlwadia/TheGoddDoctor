@@ -29,16 +29,13 @@ const Login = () => {
    
 
   return (
-    <main style={{display:'flex',width:'100%'}}>
-     <img className='clinic-appointment-img' src={clinicAppointment} alt='login clinic appointment system' width={'100%'} />
-     <Countainer 
-       width={'100%'} 
-       height={'100vh'}
-       childern={
-         <Form 
+    <main style={{display:'flex',width:'100%',height:'100vh'}}>
+     <img className='clinic-appointment-img' src={clinicAppointment} alt='login clinic appointment system' width={'50%'} />
+     
+     <Form 
       handleSubmit={handleSubmit}
       childern={<>
-        <h1 className='title-form'  >welcome!</h1>
+        <h1 className='title-form'>welcome!</h1>
         <DrawingFormElements valuesForm={{email:valuesForm.email,password:valuesForm.password}} handleChangeValue={handleChangeValue} errors={errors}/>
         <select className='input' value={valuesForm.role}
             onChange={(e) => handleChangeValue('role', e.target.value)}>
@@ -50,10 +47,6 @@ const Login = () => {
         </>
         }
     />
-  }
-      
- 
-/>
     
     </main>
 

@@ -6,46 +6,53 @@
 
 body {
   font-family: "Poppins", serif;
-  height: 1200px;
 }
 a{
   color: rgb(12, 12, 12);
   text-decoration: none;
 }
-.container {
+.countainer {
   padding: 0 15px;
   margin: 0 auto;
 }
 
-
+h1,h2{
+  text-transform: capitalize;
+}
 input{
   outline: none;
   border: none;
 }
 .link-as-btn{
-  background-color:#344CB7;
+  background-color:#051c83;
   color:white;
   width: 200px;
-  padding: 20px 15px;
+  padding: 20px 30px;
 }
+
+.link-as-btn:hover {
+  box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+  transform: translateY(-2px);
+}
+
 
 /* Small Screen */
 @media (min-width: 768px) {
-  .container {
+  .countainer {
     width: 750px;
   }
 }
 
 /* Medium Screen */
 @media (min-width: 992px) {
-  .container {
+  .countainer {
     width: 970px;
   }
 }
 
 /* Large Screen */
 @media (min-width: 1200px) {
-  .container {
+  .countainer {
     width: 1170px;
   }
 }

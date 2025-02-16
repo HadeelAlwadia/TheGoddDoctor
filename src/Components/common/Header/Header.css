@@ -1,7 +1,4 @@
 header{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
     background-color: white;
     position: sticky;
     top: 0px;
@@ -15,4 +12,18 @@ h1.title-header{
     display: flex;
     align-items: center;
 
+}
+.user-icon{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border:1px solid blue;
+}
+header section{
+    height: 100%;
+    margin: auto;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

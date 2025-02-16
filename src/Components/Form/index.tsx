@@ -38,7 +38,7 @@ export const DrawingFormElements = ({ valuesForm, handleChangeValue, errors }: I
 
 const Form = ({ handleSubmit, childern }: { handleSubmit: (values: Iopject_Type) => void, childern: ReactElement }) => {
     return (
-        <div className='form-Countainer'> 
+        <div className='form-countainer'> 
 
         <form onSubmit={handleSubmit} className='form'>
                 {childern}
