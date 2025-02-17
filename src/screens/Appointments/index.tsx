@@ -6,6 +6,7 @@ import { AppContext } from '../../store';
 import { userInfo } from '../../storage';
 import { useContext } from 'react';
 import { Iappointment } from '../../@types';
+import PopUp from '../../Components/PopUp';
 
 
 
@@ -28,6 +29,7 @@ appointments.forEach(patient=>patient.appointments.forEach(appo=>listOfAppointme
       </section>
 
       </section>
+
       </section> 
        
         

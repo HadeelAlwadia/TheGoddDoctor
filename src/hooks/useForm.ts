@@ -18,7 +18,7 @@ const useForm = (values: Iopject_Type, handleSubmitForm: (values: Iopject_Type) 
 
     const [errors, setErrors] = useState({})
     //to handle errors form
-    const handleErrorsForm=(name:keyof typeof errors)=>{
+    const handleErrorsForm=(name:string)=>{
            errors[name] =''
         setErrors({...errors})
 

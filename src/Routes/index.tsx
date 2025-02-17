@@ -17,7 +17,7 @@ export const routes = createBrowserRouter([
     {
      path: '/:role/:id/appointments', element: <Appointments />
     }, {
-        path: '/patient/:id/appointments/add', element: <CreateAppointment />
+        path: '/:role/:id/appointments/add', element: <CreateAppointment />
     },
     { path: '*', element: <Error /> }
 

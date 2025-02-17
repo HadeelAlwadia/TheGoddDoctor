@@ -1,8 +1,12 @@
+import { useContext } from 'react'
 import Btn from '../../Components/common/Button'
 import Form from '../../Components/Form'
 import useForm from '../../hooks/useForm'
 import { userInfo } from '../../storage'
 import './Appointments.css'
+import { AppContext } from '../../store'
+import actions from '../../store/actions'
+import { Iappointment } from '../../@types'
 
 
 
@@ -18,21 +22,19 @@ const addAppotValues = {
 
 }
 
-//Appo specifec for appointment
-const handleAddAppo = (values: Record<string, string>) => {
-  alert('successe add appointment ,wait little hour to replay about you');
-  const appointments = localStorage.getItem('appointments') ? JSON.parse(localStorage.getItem('appointments') || '') : [];
-  const targetAppointment = appointments.find((patient: any) => patient.id === userInfo.id) || { id: userInfo.id, appointments: [] }
-  localStorage.setItem('appointments', JSON.stringify([...(appointments.filter((patient: any) => patient.id !== targetAppointment.id)), { id: targetAppointment.id, appointments: [...targetAppointment.appointments, { ...values, status: 'panding' }] }]))
-  
-
-  setTimeout(() => window.location.href = `/patient/${userInfo.id}/appointments`, 3)
-
-}
 
 
 const CreateAppointment = () => {
+  const {dispatch}=useContext(AppContext)
   const { handleChangeValue, handleSubmit, errors, valuesForm, handleErrorsForm } = useForm(addAppotValues, handleAddAppo)
+
+//Appo specifec for appointment
+function handleAddAppo (values: Record<string, string>) {
+  alert('successe add appointment ,wait little hour to replay about you');
+  dispatch(actions.addAppointments(values as unknown as Iappointment))
+  setTimeout(() => window.location.href = `/patient/${userInfo.id}/appointments`, 3)
+
+}
 
   return (
     <Form handleSubmit={handleSubmit}

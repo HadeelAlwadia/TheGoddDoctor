@@ -6,11 +6,14 @@ import { MdOutlineDelete } from "react-icons/md";
 import { useContext } from 'react';
 import { AppContext } from '../../store';
 import actions from '../../store/actions';
+import { Iappointment } from '../../@types';
+import PopUp from '../PopUp';
 
-const Table = ({ data }: { data: any }) => {
+const Table = ({ data }: { data: Iappointment []}) => {
     const { dispatch } = useContext(AppContext)
     return (
-        <table>
+      <>
+           <table>
             <caption>
                 Front-end web developer course 2021
             </caption>
@@ -62,6 +65,10 @@ const Table = ({ data }: { data: any }) => {
 
 
         </table>
+            <PopUp/>
+
+      </>
+   
     )
 }
 
