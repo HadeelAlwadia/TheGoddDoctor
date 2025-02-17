@@ -1,7 +1,6 @@
 # Clinic Appointment System 🏥💻
 
 ![Clinic Appointment System](src/assets/loginpage.png)
-![appointments](src/assets/appointmentpage.png)
 ![appointments](src/assets/dashboardpage.png)
 
 ![dashboard](src/assets/dashboard.png)
