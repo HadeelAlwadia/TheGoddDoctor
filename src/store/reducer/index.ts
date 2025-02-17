@@ -1,82 +1,62 @@
-import { storeInLocalStorage } from "../../storage"
-import CONSTANTS from "../constants"
+import { Iaction, Iapp_State, Iappointment, Ipatient } from "../../@types";
+import { getFromLocalStorage, storeInLocalStorage, userInfo } from "../../storage"
+import CONSTANTS from "../constants";
 
-const reducer = (state: any, action: any) => {
 
-  switch (action.type) {
 
-    case 'toggleTheme': {
-      const newTheme= state.theme === 'light' ? 'dark' : 'light' ;
-            storeInLocalStorage('theme',newTheme)
-      return { ...state,  theme: newTheme }
 
+const reducer=(state:Iapp_State,{type,payload}:Iaction)=>{
+    switch(type){
+          
+      case CONSTANTS.INITIAL_APPOINTMENTS:{
+          const appointments=getFromLocalStorage('appointments')||[];
+          const targetPatient=appointments.find((patient:Ipatient)=> patient.id===userInfo.id );
+          const targetAppointments:Iappointment[]=targetPatient?targetPatient.appointments:[]
+    
+      return {...state,appointments:appointments,targetAppointments:targetAppointments}
     }
-    case CONSTANTS.START_GET_USER_INFO: {
-      return {
-        ...state,  userInfo: { data: null, loading: true, error: '' }
-      }
-    }
-    case CONSTANTS.SUCCESS_GET_USER_INFO: {
-      return {
-        ...state, userInfo: { data: action.payload, loading: false, error: '' }
-      }
-    }
-    case CONSTANTS.FAILED_GET_USER_INFO: {
-      return {
-        ...state, userInfo: { data: action.payload, loading: false, error: '' }
-      }
-    }
-    case CONSTANTS.START_GET_REQUESTS_USER: {
-      return {
-        ...state, requestsUser: { data: null, loading: true, error: '' }
-      }
-    }
-    case CONSTANTS.SUCCESS_GET_REQUESTS_USER: {
-      return {
-        ...state, requestsUser: { data: action.payload, loading: false, error: '' }
-      }
-    }
-    case CONSTANTS.FAILED_GET_REQUESTS_USER: {
-      return {
-        ...state, requestsUser: { data: null, loading: false, error: action.payload }
-      }
 
+    case CONSTANTS.ADD_APPOINTMENTS:{
+      const {appointments} = state
+      const targetPatient = appointments.find((patient: Ipatient) => patient.id === userInfo.id) || { id: userInfo.id, appointments: [] }
+       const newTargetAppointments= [...targetPatient.appointments, { ...payload, status: 'panding' }]
+      const newAppointments=[...(appointments.filter((patient: any) => patient.id !== targetPatient.id)), { id: targetPatient.id, appointments:newTargetAppointments }]
+      storeInLocalStorage('appointments', newAppointments)
+
+  
+    return {...state,appointments:newAppointments,targetAppointment:newTargetAppointments}
     }
 
 
-    case CONSTANTS.START_GET_USERS_ADMIN: {
-      return { ...state, usersAdmin: { data: null, loading: true, error: '' } }
-    }
-    case CONSTANTS.SUCCESS_GET_USERS_ADMIN: {
-      return { ...state, usersAdmin: { data: action.payload, loading: false, error: '' } }
+    case 'editeAppoint':{
+      const {appointments} = state
+      const targetPatient = appointments.find((patient: Ipatient) => patient.id === userInfo.id) || { id: userInfo.id, appointments: [] }
+       const newTargetAppointments= [...targetPatient.appointments.filter(appo=>appo.id!==payload),payload]
+      const newAppointments=[...(appointments.filter((patient: any) => patient.id !== targetPatient.id)), { id: targetPatient.id, appointments:newTargetAppointments }]
+      storeInLocalStorage('appointments', newAppointments)
 
-    }
-    case CONSTANTS.FAILED_GET_USERS_ADMIN: {
-      return {
-        ...state, usersAdmin: { data: null, loading: false, error: action.payload }
-      }
-    }
+    
 
-    case CONSTANTS.START_GET_PRODUCTS_ADMIN: {
-      return { ...state, productsAdmin: { data: null, loading: true, error: '' } }
-    }
-    case CONSTANTS.SUCCESS_GET_PRODUCTS_ADMIN: {
-      return { ...state, productsAdmin: { data: action.payload, loading: false, error: '' } }
-
-    }
-    case CONSTANTS.FAILED_GET_PRODUCTS_ADMIN: {
-      return {
-        ...state, productsAdmin: { data: null, loading: false, error: action.payload }
-      }
+      return {...state,appointments:newAppointments,targetAppointment:newTargetAppointments}
     }
 
+    case CONSTANTS.DELETE_APPOINTMENT:{
+      const {appointments} = state
+      const targetPatient = appointments.find((patient: Ipatient) => patient.id === userInfo.id) || { id: userInfo.id, appointments: [] }
+       const newTargetAppointments= [...targetPatient.appointments.filter(appo=>appo.id!==payload)]
+      const newAppointments=[...(appointments.filter((patient: any) => patient.id !== targetPatient.id)), { id: targetPatient.id, appointments:newTargetAppointments }]
+      storeInLocalStorage('appointments', newAppointments)
 
-      return state;
+    
 
+      return {...state,appointments:newAppointments,targetAppointment:newTargetAppointments}
+    }
+      default:  return state;
+
+    }
+     
   }
-
-}
-
+    
 
 
 export default reducer;

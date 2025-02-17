@@ -1,5 +1,7 @@
+import { objectType } from "../@types"
+
 const validateForm = (values: any) => {
-    let errors: any ={}
+    let errors: objectType ={}
     Object.keys(values).forEach(key=>{
 
 if(values[key]===''){
@@ -15,9 +17,11 @@ if(values[key]===''){
             if(hour>17){
             errors[key]='time must before 5BM'
             }
+
             if(hour<8){
              errors[key]='time must after 8AM'
             }
+            break;
             }
 
         default:

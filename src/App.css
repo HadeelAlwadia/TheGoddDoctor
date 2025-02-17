@@ -37,22 +37,12 @@ input{
 
 
 /* Small Screen */
-@media (min-width: 768px) {
+@media (max-width: 600px) {
   .countainer {
     width: 750px;
   }
-}
-
-/* Medium Screen */
-@media (min-width: 992px) {
-  .countainer {
-    width: 970px;
+  .sm-screen-countainer{
+    flex-direction: column;
   }
 }
 
-/* Large Screen */
-@media (min-width: 1200px) {
-  .countainer {
-    width: 1170px;
-  }
-}

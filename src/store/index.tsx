@@ -1,12 +1,14 @@
-import  { createContext, useReducer } from 'react';
-import reducer from './reducer';
+import  { createContext, ReactElement, useEffect, useReducer } from 'react';
 import { getFromLocalStorage } from '../storage';
 import { Iaction, Iapp_State } from '../@types';
+import reducer from './reducer';
+import actions from './actions';
 
 
 export const initialState:Iapp_State = {
-   theme: getFromLocalStorage('theme') || 'light',
-   
+     theme: getFromLocalStorage('theme') || 'light',
+     appointments:[],
+     targetAppointments:[],
     dispatch:(action:Iaction)=>{console.log(action)}
 };
 
@@ -15,8 +17,15 @@ export const initialState:Iapp_State = {
 export const AppContext = createContext(initialState);
 
 
-  const AppProvider = ({children}:{children:any}) => {
+  const AppProvider = ({children}:{children:ReactElement}) => {
   const [appState, dispatch] = useReducer(reducer, initialState);
+         
+
+  useEffect(()=>{
+      dispatch(actions.initialAppointments())
+      },[])
+
+
 
   return (
      <AppContext.Provider value={{...appState,dispatch}}>

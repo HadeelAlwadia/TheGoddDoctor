@@ -1,3 +1,4 @@
+import { Iappointment } from "../@types";
 
 const getStartOfWeek = () => {
     const start = new Date();
@@ -6,9 +7,9 @@ const getStartOfWeek = () => {
     return new Date(start.setDate(diff));
 };
 
-const getAppointmentsPerDay = (appointments:any[]) => {
+const getAppointmentsPerDay = (appointments:Iappointment[]) => {
     const startOfWeek = getStartOfWeek();
-    const appointmentsPerDay = {};
+    const appointmentsPerDay:Record<string,number> = {};
 
     for (let i = 0; i < 7; i++) {
         const day = new Date(startOfWeek);
@@ -20,11 +21,11 @@ const getAppointmentsPerDay = (appointments:any[]) => {
     appointments.forEach((appointment) => {
         const appointmentDate = new Date(appointment.date).toISOString().split("T")[0];
         if (appointmentsPerDay[appointmentDate] !== undefined) {
-            appointmentsPerDay[appointmentDate] += 1;
+            appointmentsPerDay[ appointmentDate ]  += 1;
         }
     });
 
     return appointmentsPerDay;
 };
 
-export default getAppointmentsPerDay
+export default getAppointmentsPerDay;

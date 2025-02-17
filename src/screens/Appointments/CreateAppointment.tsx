@@ -7,6 +7,7 @@ import './Appointments.css'
 
 
 const addAppotValues = {
+  id:`${Math.random()}`,
   fullName: '',
   age: '',
   mobileNumber: '',
@@ -22,6 +23,8 @@ const handleAddAppo = (values: Record<string, string>) => {
   const appointments = localStorage.getItem('appointments') ? JSON.parse(localStorage.getItem('appointments') || '') : [];
   const targetAppointment = appointments.find((patient: any) => patient.id === userInfo.id) || { id: userInfo.id, appointments: [] }
   localStorage.setItem('appointments', JSON.stringify([...(appointments.filter((patient: any) => patient.id !== targetAppointment.id)), { id: targetAppointment.id, appointments: [...targetAppointment.appointments, { ...values, status: 'panding' }] }]))
+  
+  
   setTimeout(() => window.location.href = `/patient/${userInfo.id}/appointments`, 3)
 
 }
