@@ -2,6 +2,8 @@
 
 ![Clinic Appointment System](src/assets/loginpage.png)
 ![dashboard](src/assets/dashboardpage.jpg.png)
+![dashboard](src/assets/)
+
 
 ![patientpage](src/assets/patientpage.png)
 ![createAppoitment.png](src/assets/createAppoitment.png)
