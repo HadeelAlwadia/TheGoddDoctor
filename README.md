@@ -27,7 +27,7 @@ A **React-based Clinic Appointment System** that allows patients and doctors to 
 
 ## Installation 📥
 ```sh
-git clone https://github.com/yourusername/clinic-appointment-system.git](https://github.com/HadeelAlwadia/TheGoodDoctor.git
+git clone https://github.com/HadeelAlwadia/TheGoodDoctor.git
 cd clinic-appointment-system
 npm install
 npm start
