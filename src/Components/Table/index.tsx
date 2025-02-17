@@ -7,7 +7,6 @@ import { useContext } from 'react';
 import { AppContext } from '../../store';
 import actions from '../../store/actions';
 import { Iappointment } from '../../@types';
-import PopUp from '../PopUp';
 
 const Table = ({ data }: { data: Iappointment []}) => {
     const { dispatch } = useContext(AppContext)
@@ -65,7 +64,6 @@ const Table = ({ data }: { data: Iappointment []}) => {
 
 
         </table>
-            <PopUp/>
 
       </>
    

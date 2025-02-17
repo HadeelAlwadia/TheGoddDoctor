@@ -14,7 +14,7 @@ const Appointments = () => {
 const {appointments,targetAppointments} =useContext(AppContext)
 const listOfAppointments:Iappointment[]=[]
 appointments.forEach(patient=>patient.appointments.forEach(appo=>listOfAppointments.push(appo)))
-  
+   
   return (
   
     <section className="dashboard-countainer">
