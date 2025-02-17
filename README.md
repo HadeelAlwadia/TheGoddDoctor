@@ -1,6 +1,6 @@
 # Clinic Appointment System 🏥💻
 
-![Clinic Appointment System](src/assets/loginpage.png)
+![Clinic Appointment System](src/assets/doctors.jpg)
 
 A **React-based Clinic Appointment System** that allows patients and doctors to manage appointments efficiently.
 
