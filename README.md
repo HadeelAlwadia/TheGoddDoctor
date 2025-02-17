@@ -1,6 +1,6 @@
 # Clinic Appointment System 🏥💻
 
-![Clinic Appointment System](./assets/loginpage.png)
+![Clinic Appointment System](./assets/screenshot.png)
 
 A **React-based Clinic Appointment System** that allows patients and doctors to manage appointments efficiently.
 
@@ -16,4 +16,12 @@ A **React-based Clinic Appointment System** that allows patients and doctors to 
 
 ## Tech Stack 🛠️
 - **Frontend:** React, React Router, Tailwind CSS
-- *
+- **Backend:** Node.js, Express (if applicable)
+- **Database:** MongoDB/MySQL (if applicable)
+
+## Installation 📥
+```sh
+git clone https://github.com/yourusername/clinic-appointment-system.git
+cd clinic-appointment-system
+npm install
+npm start
