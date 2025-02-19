@@ -2,7 +2,7 @@ header{
     background-color: white;
     position: sticky;
     top: 0px;
-    height: 60px;
+    height: 70px;
 z-index: 1;
 }
 h1.title-header{
@@ -13,6 +13,39 @@ h1.title-header{
     align-items: center;
 
 }
+.user-list{
+    width: 200px;
+    position: relative;
+}
+.user-list img{
+    margin: auto;
+}
+.user-list nav{
+    border-radius: 5px;
+    position: absolute;
+    top: 100%;
+    background-color:#0b3bd6;
+    width: 200px;
+    padding: 12px 20px;
+    left: 0;
+    color: white;
+}
+.nav-display-true{
+     display:block;
+}
+.nav-display-true ul{
+    width: 100%;
+
+}
+.nav-display-false{
+    display: none;
+}
+
+.logout{
+    
+    border-top: 1px solid gray;
+}
+
 .user-icon{
     width: 30px;
     height: 30px;

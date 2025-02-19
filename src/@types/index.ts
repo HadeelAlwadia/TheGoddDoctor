@@ -2,7 +2,6 @@ interface Iuser_Auth{
 
 }
  interface Iappointment{
-   push(appo: Iappointment): void
     id:string,
 fullName: string,
 name:string,

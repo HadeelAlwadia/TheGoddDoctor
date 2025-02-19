@@ -1,9 +1,70 @@
 .pop-up{
+    border-radius: 5px;
     position: fixed;
-    background-color: red;
-    width: 40%;
-    height: 300px;
+    background-color:white;
+    width: 30%;
+    height: 250px;
     top:50%;
     left: 50%;
     transform: translate(-50%,-50%);
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    font-size: 0.7em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    
 }
+.pop-up > section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:0 20px;
+}
+
+.detailes-appointment{
+    margin-top: 40px;
+
+}
+/*.pop-up:nth-child(1){
+    flex-grow: 1;
+    background-color: aquamarine;
+    
+}
+.pop-up:nth-of-type(2){
+flex-grow: 1;
+background-color: rgb(27, 27, 27);
+}
+.pop-up:nth-of-type(3){
+    flex-grow: 3;
+    background: green;
+}*/
+mark{   
+    background: inherit;
+    color: rgb(68, 67, 67);
+}
+.title-appointment{
+    height: 20%;
+    border-bottom: 1px solid rgb(136, 132, 132);
+}
+.popUp-display-false{
+    display: none;
+}
+.popUp-display-true{
+ display: block;
+}
+
+@media (max-width:600px) {
+    .pop-up{
+        width: 100vw;
+        height: 60vh;
+        z-index: 3;
+   }
+   
+   .dashboard-countainer{
+    flex-direction: column;
+   }
+   table{
+    width: 100%;
+   }
+    } 
