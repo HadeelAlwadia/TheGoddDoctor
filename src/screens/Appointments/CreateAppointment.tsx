@@ -22,8 +22,6 @@ const addAppotValues = {
 
 }
 
-
-
 const CreateAppointment = () => {
   const {dispatch}=useContext(AppContext)
   const { handleChangeValue, handleSubmit, errors, valuesForm, handleErrorsForm } = useForm(addAppotValues, handleAddAppo)
@@ -57,7 +55,6 @@ function handleAddAppo (values: Record<string, string>) {
                     onChange={(e) => handleChangeValue('gander', e.target.value)}>
                     {['male', 'famle'].map((val: string) => <option key={val} value={val}>{val}</option>)}
                   </select>:<input value={valuesForm[item2.name]}    type={item2.type} placeholder={`enter your  ${item2.name}` }onBlur={() => handleErrorsForm(item2.name)} onChange={(e) => handleChangeValue(item2.name, e.target.value)} />
-
                   }
                  
                   {errors[item2.name] && <p className='input-error'>{errors[item2.name]}</p>}

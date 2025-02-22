@@ -22,7 +22,7 @@ const Table = ({ data, actionsFun }:
     const { dispatch } = useContext(AppContext);
     return (
         <>
-            <table>
+            <table width={'100px'} >
                 <caption>
                     all appointments for 2021 year
                 </caption>

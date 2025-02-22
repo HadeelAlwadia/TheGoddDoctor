@@ -11,14 +11,22 @@ interface IpopUp{
   handleOpenPopUp:()=>void,isOben:boolean,typeOfPopUp:string}
 
 const PopUp = ({data, handleOpenPopUp,isOben,typeOfPopUp}:IpopUp) => {
-  const [newAppointment,setNewAppointment]=useState<Iappointment>(data)
     const {dispatch} =useContext(AppContext); 
-    const handleChangeValue=(name:string,value:string)=>{
+     const [newStatus,setNewStatus]=useState(data.status)
+     console.log(newStatus)
+    const handleChangeStatus=(value:'panding'|'confirmed'|'completed')=>{
    //   newAppointment[name as keyof typeof data]=value;
-      setNewAppointment(newAppointment)
+   setNewStatus(value)
 
     }
-    console.log(newAppointment)
+    const handleEditAppointment=()=>{
+      const newAppointment={...data,status:newStatus}
+      console.log(newAppointment)
+
+      dispatch(actions.editeAppointment(newAppointment))
+
+      handleOpenPopUp()
+    }
   return (
     <section className={`pop-up popUp-display-${isOben}`}>
 
@@ -43,12 +51,16 @@ const PopUp = ({data, handleOpenPopUp,isOben,typeOfPopUp}:IpopUp) => {
 
     </section>
     <section>
-      <h2>status:<mark>{data.status}</mark></h2>
+     {typeOfPopUp==='edit' ?<select onChange={(e)=>{handleChangeStatus(e.target.value as 'completed'|'confirmed'|'panding')}}>
+{['panding','completed','confirmed'].map(status=><option>{status}</option>)
+}     </select>:<h2>status:<mark>{data.status}</mark></h2>}
       <h2>time:<mark>{data.time}</mark></h2>
-      
+         
     </section>
+
   </section>
-  </section>
+{typeOfPopUp==='edit' &&  <Btn type={'button'} name={'edit status'} handleClick={handleEditAppointment}/>
+}  </section>
 
 
   )

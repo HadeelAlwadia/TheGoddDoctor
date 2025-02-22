@@ -5,7 +5,7 @@ import doctorIcon from '../../assets/doctor-icon.jpg'
 import systemImg from '../../assets/system-image.jpg'
 import { useContext } from "react"
 import { AppContext } from "../../store"
-
+import './DashBoardInfo.css'
 const DashBoardInfo = () => {
     const {appointments} =useContext(AppContext)
     let totalAppoitments=0
@@ -13,7 +13,7 @@ const DashBoardInfo = () => {
 
   return (
     <section className="dashboard-info">
-    <section className="dashboard-info-1">
+     <section className="dashboard-info-1">
       <section  style={{background:'red',borderRadius:'15px' , marginBottom:'20px',height:'60%', position:'relative',backgroundImage:`url(${systemImg})`,backgroundRepeat:'no-repeat',backgroundSize:'cover'}}>
       <img src={doctorIcon} alt='doctor image' className="doctor-dashboard-img"/>
       </section>

@@ -2,7 +2,7 @@ import './About.css'
 import aboutDoctor from '../../assets/about-doctor.png'
 const About = () => {
   return (
-    <section className='about-section'>
+    <section className='about-section sm-screen-countainer'>
         <img src={aboutDoctor} width={'100%'} height={'100%'}/>
         <section className='about-info'>
         <section >

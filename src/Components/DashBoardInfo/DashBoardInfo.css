@@ -1,0 +1,42 @@
+
+.dashboard-info{
+ flex-grow: 1;
+ display: flex;
+ flex-direction: column;
+ border-radius: 15px;
+border: 1px solid rgb(211, 211, 211);
+/*width: 400px;*/
+}
+
+.dashboard-info-1{
+ flex-grow: 1;
+ text-align: center;
+ border-bottom: 1px solid rgb(241, 239, 239);
+
+}
+.dashboard-info-2{
+    flex-grow: 1.5;
+}
+.dashboard-appointments{
+    flex-grow: 3;
+}
+
+@media(max-width:600px){
+    .dashboard-countainer{
+     height: 1200px;
+      }
+      
+    .dashboard-info{
+
+        height: 70vh;
+    }
+    .dashboard-info-1:first-child{
+        height: 90%;
+    }
+    .dashboard-info-1{
+        flex-grow: 3;
+    }
+.dashboard-info-2{
+    flex-grow:1 ;
+}
+}

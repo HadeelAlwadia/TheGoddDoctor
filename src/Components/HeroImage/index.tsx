@@ -6,14 +6,16 @@ import { FaUserDoctor } from "react-icons/fa6";
 import { FaHeartbeat } from "react-icons/fa";
 import { IoIosTimer } from "react-icons/io";
 
+const itemsInfo=[{ icon: 'heart', name: 'Emergency Cases', desc: 'This is required when, for example, the is not yet available. Dummy text is also known as.' },
+  { icon: 'doctortimetable', name: 'Doctors Timetable', desc: 'This is required when, for example, the is not yet available. Dummy text is also known as' }, 
+  { icon: 'time', name: 'Opening Hours', desc: 'sunday from 5 to 8 ,statraday from 4 to 7' }]
 import './HeroImage.css'
 const HeroImage = () => {
   return (
-    <section className='hero-image-countainer'>
+    <section className='hero-image-countainer '>
       <img src={doctors} />
       <section className='content-countainer'>
-        <section  className='content-countainer-1' 
-         >
+        <section  className='content-countainer-1'>
           <img src={logo} alt='clinic-appointments-app' height={'30px'} width={'30px'} />
           <h1 className='title-page'>
             Meet The
@@ -26,10 +28,8 @@ const HeroImage = () => {
           <a className='link-as-btn' href={userInfo.id ? `/patient/${userInfo.id}/appointments/add` : `/auth/login`}>Make appointment</a>
         </section>
 
-        <section className='more-detalies-countainer'>
-          {[{ icon: 'heart', name: 'Emergency Cases', desc: 'This is required when, for example, the is not yet available. Dummy text is also known as.' },
-           { icon: 'doctortimetable', name: 'Doctors Timetable', desc: 'This is required when, for example, the is not yet available. Dummy text is also known as' }, 
-           { icon: 'time', name: 'Opening Hours', desc: 'sunday from 5 to 8 ,statraday from 4 to 7' }].map(item =>
+        <section className='more-detalies-countainer sm-screen-countainer'>
+          {itemsInfo.map(item =>
             <section >
                {
                 item.icon==='time'?<IoIosTimer size={30} color='blue'/>:item.icon==='heart'?<FaHeartbeat size={30} color='blue'/>:<FaUserDoctor size={30} color='blue'/>

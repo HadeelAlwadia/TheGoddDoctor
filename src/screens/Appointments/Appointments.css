@@ -1,5 +1,6 @@
 
 
+
 .input-countainer{
     display: flex;
     justify-content: space-between;
@@ -7,6 +8,7 @@
     margin-bottom: 20px;
 
 }
+
 
 .input-countainer section{
   width: 100%;
@@ -23,12 +25,14 @@ textarea{
     padding: 10px ;
     height:100px;
 }
-
+.appointments-table{
+  width: 90%;
+  margin: auto;
+ background-color: aqua;
+}
 
 /* Small Screen */
 @media (max-width: 600px) {
-
-   
     .input-countainer {
       flex-direction: column;
     }
@@ -40,17 +44,11 @@ textarea{
   
 
 
-  .title-appointments{
+  .title-appointments {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 100px;
-    width: 90%;
-    margin: auto;
+    
   }
-
-  .appointments-table{
-    width: 90%;
-    height: 100%;
-    margin: auto;
-  }
+  

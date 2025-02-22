@@ -1,7 +1,6 @@
 import useForm from '../../../hooks/useForm'
 import Form, { DrawingFormElements } from '../../../Components/Form'
 import Btn from '../../../Components/common/Button'
-import { Countainer } from '../../../Components/common/Countainer'
 import { storeInLocalStorage } from '../../../storage'
 import clinicAppointment from '../../../assets/clinic-appointment-system.jpg'
 import './login.css'
@@ -13,8 +12,6 @@ const loginValues = {
   role:'doctor'
 
 }
-
-
 
 const handleLogin = (values:Iopject_Type) => {
     const userId=`${Math.random()}`
@@ -31,7 +28,6 @@ const Login = () => {
   return (
     <main style={{display:'flex',width:'100%',height:'100vh'}}>
      <img className='clinic-appointment-img' src={clinicAppointment} alt='login clinic appointment system' width={'50%'} />
-     
      <Form 
       handleSubmit={handleSubmit}
       childern={<>

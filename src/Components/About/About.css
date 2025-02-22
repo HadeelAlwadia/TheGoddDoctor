@@ -1,9 +1,9 @@
 .about-section{
     display: flex;
     width: 80%;
-    margin: auto;
+    margin:50px auto;
     padding:14px 15px;
-    margin-top: 200px;
+
 }
 .about-info{
     display: flex;
@@ -13,9 +13,9 @@
 .about-info section *{
     margin-bottom: 30px;
 }
-@media (max-width:600px)
-{
+
+@media(max-width:600px){
     .about-section{
-        flex-direction: column;
+        margin-top: 340px;
     }
 }

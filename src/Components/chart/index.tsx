@@ -50,7 +50,7 @@ const ApexChart = ({data}:{data:number[]}) => {
   
 
   return (
-          <ReactApexChart options={state.options} series={state.series} type="line" height={'100%'} width={'30%'} />
+          <ReactApexChart options={state.options} series={state.series} type="line" height={'100%'} width={'100%'} />
   );
 }
 export default ApexChart
