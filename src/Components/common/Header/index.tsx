@@ -27,9 +27,9 @@ const Header = () => {
              <img src={userInfo.role === 'doctor' ? `${doctorIcon}` : `${patientIcon}`} className='user-icon' alt='doctor  image fpor clinic  appointments' />
           <nav className={`nav-display-${ openNav}`} >
             <ul>
-              <li>
+          {userInfo.role==='doctor'&&    <li>
                 <a href={`/doctor/${userInfo.id}/dashboard`}>dashbord</a>
-              </li>  
+              </li>  }
               <li>
               <a href={`/${userInfo.role}/${userInfo.id}/appointments`}>appointments</a>
                 </li>

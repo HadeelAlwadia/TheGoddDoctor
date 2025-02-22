@@ -8,12 +8,12 @@ import { Iappointment } from '../../@types';
 import PopUp from '../../Components/PopUp';
 
 const Appointments = () => {
-  const { appointments, targetAppointments } = useContext(AppContext)
+  const { appointments, targetPatient } = useContext(AppContext)
   const listOfAppointments: Iappointment[] = [];
   const [isOpen, setIsOpen] = useState(false);
   const [idOfTargetAppointment,setIdOfTargetAppointment]=useState('')
   const [typeOfPopUp,setTypeOfPopUp]=useState('view')
-  let targetAppoitment:Iappointment={
+  let targetAppoitment={
     id: '',
     fullName: '',
     name: '',
@@ -27,11 +27,10 @@ const Appointments = () => {
 
   appointments.forEach(patient => patient.appointments.forEach(appo => {
     if(appo.id===idOfTargetAppointment){
-      targetAppoitment=appo
+      targetAppoitment={...appo,patientId:patient.id}
     }
     listOfAppointments.push(appo);
   }))
-
   const handleOpenPopUp = () => setIsOpen(!isOpen)
   const handleGetId=(id:string)=>setIdOfTargetAppointment(id)
 
@@ -48,11 +47,12 @@ const handleChangeType=(type:string)=>setTypeOfPopUp(type)
           <a href={`/${userInfo.role}/${userInfo.id}/appointments/add`} className='link-as-btn' >make appointments</a>
         </section>
           <Table
-           data={userInfo.role === 'doctor' ? listOfAppointments : targetAppointments}
+           data={userInfo.role === 'doctor' ? listOfAppointments : targetPatient.appointments}
             actionsFun={{handleOpenPopUp,handleGetId,handleChangeType}}
           />
 
       </section>
+
 
     </section>
 

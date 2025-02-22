@@ -1,5 +1,5 @@
 import  { createContext, ReactElement, useEffect, useReducer } from 'react';
-import { getFromLocalStorage } from '../storage';
+import { getFromLocalStorage, userInfo } from '../storage';
 import { Iaction, Iapp_State } from '../@types';
 import reducer from './reducer';
 import actions from './actions';
@@ -8,7 +8,7 @@ import actions from './actions';
 export const initialState:Iapp_State = {
      theme: getFromLocalStorage('theme') || 'light',
      appointments:[],
-     targetAppointments:[],
+     targetPatient:{id:userInfo.id,appointments:[]},
     dispatch:(action:Iaction)=>{console.log(action)}
 };
 

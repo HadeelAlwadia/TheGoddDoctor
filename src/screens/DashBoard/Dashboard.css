@@ -8,8 +8,9 @@ width: 40%;
     display: flex;
     width: 95%;
     margin: auto;
-    gap: 5%;
+    gap: 2%;
     height: 100vh;
+
   }
   
 .appointements-types{

@@ -21,11 +21,11 @@ const getAppointmentsPerDay = (appointments:Iappointment[]) => {
     appointments.forEach((appointment) => {
         const appointmentDate = new Date(appointment.date).toISOString().split("T")[0];
         if (appointmentsPerDay[appointmentDate] !== undefined) {
-            appointmentsPerDay[ appointmentDate ]  += 1;
+            appointmentsPerDay[appointmentDate ]  += 1;
         }
     });
 
-    return appointmentsPerDay;
+    return Object.values (appointmentsPerDay);
 };
 
 export default getAppointmentsPerDay;

@@ -19,7 +19,7 @@ type objectType =Record<string,string|number>
 interface Iapp_State{
     theme:'light'|'dark',
     appointments:Ipatient[],
-    targetAppointments:Iappointment[],
+    targetPatient:Ipatient,
     dispatch:(action:Iaction)=>void
 }
 

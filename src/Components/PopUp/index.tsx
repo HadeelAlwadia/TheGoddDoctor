@@ -7,7 +7,7 @@ import actions from '../../store/actions'
 import { IoCloseSharp } from "react-icons/io5";
 import doctorIcon  from '../../assets/doctor-icon.jpg'
 interface IpopUp{
-  data:Iappointment
+  data:any
   handleOpenPopUp:()=>void,isOben:boolean,typeOfPopUp:string}
 
 const PopUp = ({data, handleOpenPopUp,isOben,typeOfPopUp}:IpopUp) => {
@@ -21,7 +21,6 @@ const PopUp = ({data, handleOpenPopUp,isOben,typeOfPopUp}:IpopUp) => {
     }
     const handleEditAppointment=()=>{
       const newAppointment={...data,status:newStatus}
-      console.log(newAppointment)
 
       dispatch(actions.editeAppointment(newAppointment))
 

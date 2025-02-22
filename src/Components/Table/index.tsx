@@ -14,12 +14,14 @@ const Table = ({ data, actionsFun }:
         actionsFun: {
             handleOpenPopUp: () => void,
             handleChangeType: (type: string) => void,
-            handleGetId: (id: string) => void
+            handleGetId: (appoId: string,patientId:string) => void
         }
 
     }) => {
 
     const { dispatch } = useContext(AppContext);
+    console.log(data)
+    
     return (
         <div style={{overflowX:'auto',width:'100%'}}>
             <table width={'100px'} >
@@ -46,10 +48,12 @@ const Table = ({ data, actionsFun }:
 
                         </>
                             : null}
+                            
                     </tr>
                 </thead>
                 <tbody>
-                    {data.map((item: any, index: number) =>
+                    { data.map((item: any, index: number) =>
+                    
                         <tr>
                             <th scope="row">{++index}</th>
                             <th scope="row">{item.fullName}</th>
@@ -63,7 +67,7 @@ const Table = ({ data, actionsFun }:
                             {userInfo.role === 'doctor' ? <>
                                 <td><FaEye color='blue' size={20} onClick={() => {
                                     actionsFun.handleOpenPopUp()
-                                    actionsFun.handleGetId(item.id)
+                                    actionsFun.handleGetId(item.id,item.pateintId)
                                     actionsFun.handleChangeType('view')
 
                                 }
@@ -71,13 +75,13 @@ const Table = ({ data, actionsFun }:
                                 </td>
                                 <td><AiTwotoneEdit color='green' size={20} onClick={() => {
                                     actionsFun.handleOpenPopUp()
-                                    actionsFun.handleGetId(item.id)
+                                    actionsFun.handleGetId(item.id,item.pateintId)
                                     actionsFun.handleChangeType('edit')
 
                                 }
                                 } />
                                 </td>
-                                <td><MdOutlineDelete color='red' size={20} onClick={() => dispatch(actions.deleteAppointment(item.id))} />
+                                <td><MdOutlineDelete color='red' size={20} onClick={() => dispatch(actions.deleteAppointment(item.id,item.patientId))} />
                                 </td>
                             </> : null}
 
