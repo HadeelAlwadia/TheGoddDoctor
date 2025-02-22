@@ -28,13 +28,11 @@ const reducer=(state:Iapp_State,{type,payload}:Iaction)=>{
     }
 
 
-    case 'editeAppoint':{
+    case CONSTANTS.EDITE_APPOINTMENT:{
       const {appointments} = state
       const targetPatient = appointments.find((patient: Ipatient) => patient.id === userInfo.id) || { id: userInfo.id, appointments: [] }
        const newTargetAppointments= [...targetPatient.appointments.filter(appo=>appo.id!==payload),payload]
-      console.log(newTargetAppointments)
       const newAppointments=[...(appointments.filter((patient: any) => patient.id !== targetPatient.id)), { id: targetPatient.id, appointments:newTargetAppointments }]
-     
       storeInLocalStorage('appointments', newAppointments)
 
       return {...state,appointments:newAppointments,targetAppointment:newTargetAppointments}
@@ -45,9 +43,9 @@ const reducer=(state:Iapp_State,{type,payload}:Iaction)=>{
       const targetPatient = appointments.find((patient: Ipatient) => patient.id === userInfo.id) || { id: userInfo.id, appointments: [] }
        const newTargetAppointments= [...targetPatient.appointments.filter(appo=>appo.id!==payload)]
       const newAppointments=[...(appointments.filter((patient: any) => patient.id !== targetPatient.id)), { id: targetPatient.id, appointments:newTargetAppointments }]
+      
       storeInLocalStorage('appointments', newAppointments)
 
-    
 
       return {...state,appointments:newAppointments,targetAppointment:newTargetAppointments}
     }

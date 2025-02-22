@@ -21,7 +21,7 @@ const Table = ({ data, actionsFun }:
 
     const { dispatch } = useContext(AppContext);
     return (
-        <>
+        <div style={{overflowX:'auto',width:'100%'}}>
             <table width={'100px'} >
                 <caption>
                     all appointments for 2021 year
@@ -89,7 +89,7 @@ const Table = ({ data, actionsFun }:
 
             </table>
 
-        </>
+        </div>
 
     )
 }
