@@ -11,7 +11,6 @@ const reducer=(state:Iapp_State,{type,payload}:Iaction)=>{
       case CONSTANTS.INITIAL_APPOINTMENTS:{
           const appointments=getFromLocalStorage('appointments')||[];
           const targetPatient=appointments.find((patient:Ipatient)=> patient.id===userInfo.id )||{id:userInfo.id,appointments:[]};
-    
       return {...state,appointments:appointments,targetPatient:targetPatient}
     }
 
@@ -21,8 +20,6 @@ const reducer=(state:Iapp_State,{type,payload}:Iaction)=>{
        const newTargetAppointments= [...targetPatient.appointments, { ...payload, status: 'panding' }]
       const newAppointments=[...(appointments.filter((patient: any) => patient.id !== targetPatient.id)), { id: targetPatient.id, appointments:newTargetAppointments }]
       storeInLocalStorage('appointments', newAppointments)
-
-  
     return {...state,appointments:newAppointments,targetPatient:targetPatient}
     }
 
@@ -39,8 +36,7 @@ const reducer=(state:Iapp_State,{type,payload}:Iaction)=>{
 
     case CONSTANTS.DELETE_APPOINTMENT:{
       const {appointments} = state
-      const targetPatient = appointments.find((patient: Ipatient) => patient.id === payload.patientID) || { id: payload.patientId, appointments: [] }
-      
+      const targetPatient = appointments.find((patient: Ipatient) => patient.id === payload.patientId) || { id: payload.patientId, appointments: [] }
       const newTargetAppointments= targetPatient.appointments.filter(appo=>appo.id!==payload.appoId)
       const newAppointments=[...(appointments.filter((patient: any) => patient.id !== payload.patientId)), { id: targetPatient.id, appointments:newTargetAppointments }]
       storeInLocalStorage('appointments', newAppointments)

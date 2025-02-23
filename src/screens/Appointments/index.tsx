@@ -9,11 +9,11 @@ import PopUp from '../../Components/PopUp';
 
 const Appointments = () => {
   const { appointments, targetPatient } = useContext(AppContext)
-  const listOfAppointments: Iappointment[] = [];
+  const listOfAppointments: any[] = [];
   const [isOpen, setIsOpen] = useState(false);
   const [idOfTargetAppointment,setIdOfTargetAppointment]=useState('')
   const [typeOfPopUp,setTypeOfPopUp]=useState('view')
-  let targetAppoitment={
+  let targetAppoitment:Record<string,string|number>={
     id: '',
     fullName: '',
     name: '',
@@ -29,7 +29,7 @@ const Appointments = () => {
     if(appo.id===idOfTargetAppointment){
       targetAppoitment={...appo,patientId:patient.id}
     }
-    listOfAppointments.push(appo);
+    listOfAppointments.push({...appo,patientId:patient.id});
   }))
   const handleOpenPopUp = () => setIsOpen(!isOpen)
   const handleGetId=(id:string)=>setIdOfTargetAppointment(id)
