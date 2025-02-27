@@ -24,7 +24,7 @@ h1.title-header{
     border-radius: 5px;
     position: absolute;
     top: 100%;
-    background-color:#0b3bd6;
+    background-color:#01134b;
     width: 200px;
     padding: 12px 20px;
     left: 50%;
@@ -59,16 +59,4 @@ header  section{
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-@media(max-width:600px){
-    .user-list nav{
-        position: fixed;
-        width: 100vw;
-        height: 100vh;
-        top:0;
-        left: 0;
-        background-color: aliceblue;
-        color:black
-    }
 }
