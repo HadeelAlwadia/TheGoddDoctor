@@ -12,7 +12,7 @@ const Appointments = () => {
  // const listOfAppointments: any[] = [];
   
   const [isOpen, setIsOpen] = useState(false);
-  const [idOfTargetAppointment,setIdOfTargetAppointment]=useState('')
+  const [targetAppointmentId,setTargetAppointmentId]=useState('')
   const [typeOfPopUp,setTypeOfPopUp]=useState('view')
   let [targetAppoitment,setTargetAppointment]=useState({
     id: '',
@@ -31,17 +31,17 @@ console.log(listOfAppointments)
 useEffect(()=>{
   const newAppointments: any[]=[]
   appointments.forEach(patient => patient.appointments.forEach(appo => {
-    if(appo.id===idOfTargetAppointment){
+    if(appo.id===targetAppointmentId){
       setTargetAppointment({...appo,patientId:patient.id})
     }
     newAppointments.push({...appo,patientId:patient.id});
   }))
   setListOfAppointments([...newAppointments])
 
-},[appointments,targetAppoitment,idOfTargetAppointment])
+},[appointments,targetAppoitment,targetAppointmentId])
 
   const handleOpenPopUp = () => setIsOpen(!isOpen)
-  const handleGetId=(id:string)=>setIdOfTargetAppointment(id)
+  const handleGetId=(id:string)=>setTargetAppointmentId(id)
 
   
 const handleChangeType=(type:string)=>setTypeOfPopUp(type)
