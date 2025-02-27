@@ -21,7 +21,7 @@ A **React-based Clinic Appointment System** that allows patients and doctors to 
 - **Admin Dashboard** (Optional)
 
 ## Tech Stack 🛠️
-- **Frontend:** React, React Router, Tailwind CSS
+- **Frontend:** React, React Router
 
 
 ## Installation 📥
