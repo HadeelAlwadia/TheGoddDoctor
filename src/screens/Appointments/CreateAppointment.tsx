@@ -71,7 +71,7 @@ function handleAddAppo (values: Record<string, string>) {
             {errors.descraption && <p className='input-error'>{errors.descraption}</p>}
           </section>
 
-          <Btn type={'submit'} name={'create appointment'} />
+          <Btn type='submit' name={'create appointment'} />
 
         </>
 
