@@ -78,6 +78,7 @@ useEffect(()=>{
         newAppointments.push({...appo,patientId:patient.id});
       }))
       setListOfAppointments([...newAppointments])
+      setFilteredList(listOfAppointments)
     }
 
 
