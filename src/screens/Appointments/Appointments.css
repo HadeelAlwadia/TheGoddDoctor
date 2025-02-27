@@ -30,6 +30,15 @@ textarea{
   margin: auto;
  background-color: aqua;
 }
+.status-select{
+  background: rgb(21, 2, 124);
+  width: 100px;
+  color: white;
+  padding: 10px 20px;
+}
+.search{
+  width: 300px;
+}
 
 /* Small Screen */
 @media (max-width: 600px) {
