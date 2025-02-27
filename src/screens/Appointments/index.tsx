@@ -3,17 +3,18 @@ import Table from '../../Components/Table';
 import DashBoardInfo from '../../Components/DashBoardInfo';
 import { AppContext } from '../../store';
 import { userInfo } from '../../storage';
-import { useContext, useState } from 'react';
-import { Iappointment } from '../../@types';
+import { useContext, useEffect, useState } from 'react';
 import PopUp from '../../Components/PopUp';
 
 const Appointments = () => {
-  const { appointments, targetPatient } = useContext(AppContext)
-  const listOfAppointments: any[] = [];
+  const { appointments, targetPatient } = useContext(AppContext);
+  const [listOfAppointments,setListOfAppointments]=useState([])
+ // const listOfAppointments: any[] = [];
+  
   const [isOpen, setIsOpen] = useState(false);
   const [idOfTargetAppointment,setIdOfTargetAppointment]=useState('')
   const [typeOfPopUp,setTypeOfPopUp]=useState('view')
-  let targetAppoitment:Record<string,string|number>={
+  let [targetAppoitment,setTargetAppointment]=useState({
     id: '',
     fullName: '',
     name: '',
@@ -23,14 +24,22 @@ const Appointments = () => {
     date: '',
     time: '',
     status: 'panding'
-  }
+})
+ 
+console.log(listOfAppointments)
 
+useEffect(()=>{
+  const newAppointments: any[]=[]
   appointments.forEach(patient => patient.appointments.forEach(appo => {
     if(appo.id===idOfTargetAppointment){
-      targetAppoitment={...appo,patientId:patient.id}
+      setTargetAppointment({...appo,patientId:patient.id})
     }
-    listOfAppointments.push({...appo,patientId:patient.id});
+    newAppointments.push({...appo,patientId:patient.id});
   }))
+  setListOfAppointments([...newAppointments])
+
+},[appointments,targetAppoitment,idOfTargetAppointment])
+
   const handleOpenPopUp = () => setIsOpen(!isOpen)
   const handleGetId=(id:string)=>setIdOfTargetAppointment(id)
 
