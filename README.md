@@ -22,8 +22,7 @@ A **React-based Clinic Appointment System** that allows patients and doctors to 
 
 ## Tech Stack 🛠️
 - **Frontend:** React, React Router, Tailwind CSS
-- **Backend:** Node.js, Express (if applicable)
-- **Database:** MongoDB/MySQL (if applicable)
+
 
 ## Installation 📥
 ```sh
