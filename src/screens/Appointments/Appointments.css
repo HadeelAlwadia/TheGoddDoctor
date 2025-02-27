@@ -35,6 +35,8 @@ textarea{
   width: 100px;
   color: white;
   padding: 10px 20px;
+  border: none;
+  outline: none;
 }
 .search{
   width: 300px;
