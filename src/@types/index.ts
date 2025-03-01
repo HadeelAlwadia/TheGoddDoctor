@@ -1,8 +1,6 @@
-interface Iuser_Auth{
 
-}
- interface Iappointment{
-    id:string,
+interface Iappointment{
+id:string,
 fullName: string,
 name:string,
 age:number,
@@ -14,7 +12,6 @@ status:'panding'|'completed'|'confirmed'
 
 
 }
-type objectType =Record<string,string|number>
 
 interface Iapp_State{
     theme:'light'|'dark',
@@ -30,17 +27,15 @@ interface Ipatient{
 
 
 interface Iaction{
-    type:any,
+    type:string,
     payload?:any
 }
 type Iopject_Type=Record<string,any>
 
 export type {
-Iuser_Auth,
 Iapp_State,
 Iaction,
 Iopject_Type,
 Iappointment,
 Ipatient,
-objectType
 }

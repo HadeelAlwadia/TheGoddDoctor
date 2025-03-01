@@ -31,7 +31,8 @@ const Login = () => {
      <Form 
       handleSubmit={handleSubmit}
       childern={<>
-        <h1 className='title-form'>welcome!</h1>
+        <h2 className='title-form'><a href='/' > the Good Doctor</a></h2>
+        <h3>welcome!</h3>
         <DrawingFormElements valuesForm={{email:valuesForm.email,password:valuesForm.password}} handleChangeValue={handleChangeValue} errors={errors}/>
         <select className='input' value={valuesForm.role}
             onChange={(e) => handleChangeValue('role', e.target.value)}>

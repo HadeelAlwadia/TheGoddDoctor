@@ -113,9 +113,6 @@ setFilteredList(    newAppointments.filter((appo: Iappointment) => appo.fullName
 }else if(!status&&!query){
       setFilteredList([...newAppointments])}
 
-
-
-
   }, [params, appointments])
 
   useEffect(() => {
