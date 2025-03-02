@@ -6,7 +6,6 @@ import systemImg from '../../assets/system-image.jpg'
 import { useContext } from "react"
 import { AppContext } from "../../store"
 import './DashBoardInfo.css'
-import { Iappointment, Ipatient } from "../../@types"
 let dateOfToday=new Date().toISOString().split('T')[0]
 
 const DashBoardInfo = () => {
@@ -38,4 +37,4 @@ const DashBoardInfo = () => {
   )
 }
 
-export default DashBoardInfo
+export default DashBoardInfo;

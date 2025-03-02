@@ -9,7 +9,7 @@ export const initialState:Iapp_State = {
      theme: getFromLocalStorage('theme') || 'light',
      appointments:[],
      targetPatient:{id:userInfo.id,appointments:[]},
-    dispatch:(action:Iaction)=>{console.log(action)}
+     dispatch:(action:Iaction)=>{console.log(action)}
 };
 
 

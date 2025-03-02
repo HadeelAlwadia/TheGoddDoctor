@@ -1,5 +1,6 @@
 
 interface Iappointment{
+patientId?:string,
 id:string,
 fullName: string,
 name:string,
@@ -8,7 +9,8 @@ gander:string,
 mobileNumber:string,
 date:string,
 time:string,
-status:'panding'|'completed'|'confirmed'
+status:'panding'|'completed'|'confirmed',
+description:string
 
 
 }

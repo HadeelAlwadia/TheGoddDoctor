@@ -5,11 +5,13 @@ import logo from '../../assets/logo.png'
 import { FaUserDoctor } from "react-icons/fa6";
 import { FaHeartbeat } from "react-icons/fa";
 import { IoIosTimer } from "react-icons/io";
+import './HeroImage.css'
 
 const itemsInfo=[{ icon: 'heart', name: 'Emergency Cases', desc: 'This is required when, for example, the is not yet available. Dummy text is also known as.' },
   { icon: 'doctortimetable', name: 'Doctors Timetable', desc: 'This is required when, for example, the is not yet available. Dummy text is also known as' }, 
   { icon: 'time', name: 'Opening Hours', desc: 'sunday from 5 to 8 ,statraday from 4 to 7' }]
-import './HeroImage.css'
+
+  
 const HeroImage = () => {
   return (
     <section className='hero-image-countainer '>

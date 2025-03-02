@@ -8,19 +8,17 @@ import { AppContext } from '../../store';
 import actions from '../../store/actions';
 import { Iappointment } from '../../@types';
 
-const Table = ({ data, actionsFun }:
-    {
-        data: Iappointment[],
-        actionsFun: {
-            handleOpenPopUp: () => void,
-            handleChangeType: (type: string) => void,
-            handleGetId: (appoId: string,patientId:string) => void
-        }
-
-    }) => {
+interface Itable{
+    data: Iappointment[],
+    actionsFun: {
+        handleOpenPopUp: () => void,
+        handleChangeType: (type: string) => void,
+        handleGetId: (appoId: string,patientId:string) => void
+    }
+}
+const Table = ({ data, actionsFun }:Itable)=> {
 
     const { dispatch } = useContext(AppContext);
-    console.log(data)
     
     return (
         <div style={{overflowX:'auto',width:'100%'}}>

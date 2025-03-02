@@ -24,7 +24,7 @@ const reducer=(state:Iapp_State,{type,payload}:Iaction)=>{
     }
 
 
-    case CONSTANTS.EDITE_APPOINTMENT:{
+    case CONSTANTS.EDIT_APPOINTMENT:{
       const {appointments} = state
       const targetPatient = appointments.find((patient: Ipatient) => patient.id === payload.patientId) || { id: payload.patientId, appointments: [] }
       const newTargetAppointments= [...targetPatient.appointments.filter(appo=>appo.id!==payload.id),payload]

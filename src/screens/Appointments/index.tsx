@@ -14,8 +14,9 @@ const Appointments = () => {
   const [targetAppointmentId, setTargetAppointmentId] = useState('')
   const [typeOfPopUp, setTypeOfPopUp] = useState('view')
   const [params, setParams] = useSearchParams();
-  const [filteredList, setFilteredList] = useState<any[]>([]);
-  let [targetAppoitment, setTargetAppointment] = useState({
+  const listOfAppointment=appointments.map(patient=>patient.appointments).flat()
+  const [filteredList, setFilteredList] = useState(listOfAppointment);
+  let [targetAppoitment, setTargetAppointment] = useState<Iappointment>({
     patientId: '',
     id: '',
     fullName: '',
@@ -25,7 +26,8 @@ const Appointments = () => {
     mobileNumber: '',
     date: '',
     time: '',
-    status: ''
+    status: 'panding',
+  description:''
   })
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     const query = event.target.value;
@@ -49,29 +51,26 @@ const Appointments = () => {
     const query = params.get('q') || '';
     const status = params.get('status');
 
-    const newAppointments: any[] = []
-    appointments.forEach(patient => patient.appointments.forEach(appo => {
-      newAppointments.push({ ...appo, patientId: patient.id });
-    }))
+
 
 
 if(status&&query){
   switch(status){
     case 'panding': {
       setFilteredList(
-        newAppointments.filter((appo: Iappointment) => appo.status==='panding'&& appo.fullName.toLowerCase().includes(query.toLowerCase()))
+        listOfAppointment.filter((appo: Iappointment) => appo.status==='panding'&& appo.fullName.toLowerCase().includes(query.toLowerCase()))
       );
       break;
     }
     case 'completed': {
       setFilteredList(
-        newAppointments.filter((appo: Iappointment) => appo.status==='completed'&& appo.fullName.toLowerCase().includes(query.toLowerCase()))
+        listOfAppointment.filter((appo: Iappointment) => appo.status==='completed'&& appo.fullName.toLowerCase().includes(query.toLowerCase()))
       );
       break;
     }
     case 'confirmed': {
       setFilteredList(
-        newAppointments.filter((appo: Iappointment) => appo.status==='confirmed'&& appo.fullName.toLowerCase().includes(query.toLowerCase()))
+        listOfAppointment.filter((appo: Iappointment) => appo.status==='confirmed'&& appo.fullName.toLowerCase().includes(query.toLowerCase()))
       );
       break;
     }
@@ -86,19 +85,19 @@ if(status&&query){
   switch(status){
     case 'panding': {
       setFilteredList(
-        newAppointments.filter((appo: Iappointment) => appo.status==='panding')
+        listOfAppointment.filter((appo: Iappointment) => appo.status==='panding')
       );
       break;
     }
     case 'completed': {
       setFilteredList(
-        newAppointments.filter((appo: Iappointment) => appo.status==='completed')
+        listOfAppointment.filter((appo: Iappointment) => appo.status==='completed')
       );
       break;
     }
     case 'confirmed': {
       setFilteredList(
-        newAppointments.filter((appo: Iappointment) => appo.status==='confirmed')
+        listOfAppointment.filter((appo: Iappointment) => appo.status==='confirmed')
       );
       break;
     }
@@ -107,16 +106,17 @@ if(status&&query){
 
 
 }else if(!status&&query){
-setFilteredList(    newAppointments.filter((appo: Iappointment) => appo.fullName.toLowerCase().includes(query.toLowerCase()))
+setFilteredList(    listOfAppointment.filter((appo: Iappointment) => appo.fullName.toLowerCase().includes(query.toLowerCase()))
 )
 
 }else if(!status&&!query){
-      setFilteredList([...newAppointments])}
+      setFilteredList([...listOfAppointment])}
 
   }, [params, appointments])
 
+
   useEffect(() => {
-    setTargetAppointment({ ...filteredList.find(appo => appo.id === targetAppointmentId) })
+    setTargetAppointment(filteredList.find(appo => appo.id === targetAppointmentId)||targetAppoitment)
   }, [targetAppointmentId])
 
   const handleOpenPopUp = () => setIsOpen(!isOpen)
