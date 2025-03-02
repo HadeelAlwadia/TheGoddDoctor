@@ -7,7 +7,6 @@ interface IformData{
      handleChangeValue:(name:string,newValue:string)=>void
      handleSubmit:(values:Iobject)=>void
      errors:Iobject,
-     handleErrorsForm:(name:string)=>void
 }
 
 
@@ -18,12 +17,7 @@ const useForm = (values: Iopject_Type, handleSubmitForm: (values: Iopject_Type) 
     const [valuesForm, setValuesForm] = useState(values);
 
     const [errors, setErrors] = useState({})
-    //to handle errors form
-    const handleErrorsForm=(name:string)=>{
-           errors[name] =''
-        setErrors({...errors})
 
-    }
     //to handle Values Form
     const handleChangeValue = (name: string, newValue: string) => {
         setValuesForm({ ...valuesForm, [name]: newValue })
@@ -38,14 +32,13 @@ const useForm = (values: Iopject_Type, handleSubmitForm: (values: Iopject_Type) 
             handleSubmitForm(valuesForm as Iopject_Type)
             setErrors({})
 
-
         } else {
             setErrors(validateForm(valuesForm))
 
         }
     }
 
-    return { valuesForm, handleChangeValue, handleSubmit, errors,handleErrorsForm }
+    return { valuesForm, handleChangeValue, handleSubmit, errors }
 }
 
 export default useForm;

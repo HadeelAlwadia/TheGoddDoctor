@@ -24,7 +24,7 @@ const addAppotValues = {
 
 const CreateAppointment = () => {
   const {dispatch}=useContext(AppContext)
-  const { handleChangeValue, handleSubmit, errors, valuesForm, handleErrorsForm } = useForm(addAppotValues, handleAddAppo)
+  const { handleChangeValue, handleSubmit, errors, valuesForm } = useForm(addAppotValues, handleAddAppo)
 
 //Appo specifec for appointment
 function handleAddAppo (values: Record<string, string>) {
@@ -46,15 +46,15 @@ function handleAddAppo (values: Record<string, string>) {
             ].map(([item1, item2],index) =>
               <section className='input-countainer' key={String(index)}>
                 <section>
-                  <input value={valuesForm[item1.name]} onBlur={() => handleErrorsForm(item1.name)} type={item1.type} placeholder={`enter  your ${item1.name}!`} onChange={(e) => handleChangeValue(item1.name, e.target.value)} />
+                  <input value={valuesForm[item1.name]} type={item1.type} placeholder={`enter  your ${item1.name}!`} onChange={(e) => handleChangeValue(item1.name, e.target.value)} />
                   {errors[item1.name] && <p className='input-error'>{errors[item1.name]}</p>}
                 </section>
                 <section>
                   {
-                    item2.type==='select'?<select onBlur={()=>handleErrorsForm(item2.name)} value={valuesForm.gander}
+                    item2.type==='select'?<select  value={valuesForm.gander}
                     onChange={(e) => handleChangeValue('gander', e.target.value)}>
                     {['male', 'famle'].map((val: string) => <option key={val} value={val}>{val}</option>)}
-                  </select>:<input value={valuesForm[item2.name]}    type={item2.type} placeholder={`enter your  ${item2.name}` }onBlur={() => handleErrorsForm(item2.name)} onChange={(e) => handleChangeValue(item2.name, e.target.value)} />
+                  </select>:<input value={valuesForm[item2.name]}    type={item2.type} placeholder={`enter your  ${item2.name}` }onChange={(e) => handleChangeValue(item2.name, e.target.value)} />
                   }
                  
                   {errors[item2.name] && <p className='input-error'>{errors[item2.name]}</p>}
@@ -67,7 +67,7 @@ function handleAddAppo (values: Record<string, string>) {
 
 
           <section>
-            <textarea style={{ width: '100%' }} placeholder='enter descraption' onBlur={() => handleErrorsForm('descraption')} onChange={(e) => handleChangeValue('descraption', e.target.value)} ></textarea>
+            <textarea style={{ width: '100%' }} placeholder='enter descraption' onChange={(e) => handleChangeValue('descraption', e.target.value)} ></textarea>
             {errors.descraption && <p className='input-error'>{errors.descraption}</p>}
           </section>
 
