@@ -1,13 +1,8 @@
 # Clinic Appointment System 🏥💻
+## Demo Website
 
-![Clinic Appointment System](src/assets/loginpage.png)
-![appointments](src/assets/dashboardpage.png)
+Check out the live demo of the project: [the good doctor system](https://gooddoctorsystem.netlify.app/)
 
-![dashboard](src/assets/dashboard.png)
-
-
-![patientpage](src/assets/patientpage.png)
-![createAppoitment.png](src/assets/createAppoitment.png)
 A **React-based Clinic Appointment System** that allows patients and doctors to manage appointments efficiently.
 
 ## Features 🚀

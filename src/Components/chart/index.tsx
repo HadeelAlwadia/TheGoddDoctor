@@ -1,7 +1,10 @@
 import ReactApexChart from "react-apexcharts";
+import { ApexOptions } from 'apexcharts';
 
 const ApexChart = ({data}:{data:number[]}) => {
-  const state = {
+  const state:{ options: ApexOptions;
+    series: Array<{ name: string; data: number[] }>;
+} = {
     
       series: [{
           name: "appointments",
@@ -50,7 +53,7 @@ const ApexChart = ({data}:{data:number[]}) => {
   
 
   return (
-          <ReactApexChart options={state.options} series={state.series} type="line" height={'100%'} width={'100%'} />
+          <ReactApexChart options={state.options}  series={state.series} type="line" height={'100%'} width={'100%'} />
   );
 }
 export default ApexChart;
